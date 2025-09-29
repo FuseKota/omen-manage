@@ -82,4 +82,16 @@ type ApiRouteConfig = {
   handler satisfies ApiRouteConfig
 }
 
+// Validate ../../src/pages/api/sheets/query.ts
+{
+  const handler = {} as typeof import("../../src/pages/api/sheets/query.js")
+  handler satisfies ApiRouteConfig
+}
+
+// Validate ../../src/pages/api/sheets/updateRental.ts
+{
+  const handler = {} as typeof import("../../src/pages/api/sheets/updateRental.js")
+  handler satisfies ApiRouteConfig
+}
+
 

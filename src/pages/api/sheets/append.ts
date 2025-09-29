@@ -1,5 +1,8 @@
+// Google Apps Script 経由でスプレッドシートにデータを追加するAPI
+// 既存のmockSheets/googleSheetsから GAS に移行
+
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { sheets } from '@/lib/sheets';
+import { appendSalesToGAS, appendRentalsToGAS } from '@/lib/gasClient';
 
 type AppendRequest = {
   type: 'sale' | 'rental';
@@ -48,28 +51,50 @@ export default async function handler(
       });
     }
 
-    // 各行の形式をチェック
-    for (const row of rows) {
-      if (!Array.isArray(row)) {
-        return res.status(400).json({
-          success: false,
-          error: 'Each row must be an array of strings',
-        });
-      }
-    }
+    console.log(`[API] Appending ${type} data via GAS:`, rows.length, 'rows');
 
-    console.log(`[API] Appending ${type} data:`, rows);
-
-    // sheets ライブラリを使ってデータを追加
+    // データを適切な形式に変換してGASに送信
     if (type === 'sale') {
-      await sheets.appendToSales(rows);
+      // Sales 形式: [Date, Time, Category, ProductName, Quantity, UnitPrice, Subtotal, Staff, Note]
+      const salesRows = rows.map(row => ({
+        Date: row[0] || '',
+        Time: row[1] || '',
+        Category: row[2] || '',
+        ProductName: row[3] || '',
+        Quantity: row[4] || '',
+        UnitPrice: row[5] || '',
+        Subtotal: row[6] || '',
+        Staff: row[7] || '',
+        Note: row[8] || '',
+      }));
+
+      await appendSalesToGAS(salesRows);
     } else {
-      await sheets.appendToRentals(rows);
+      // Rentals 形式: [RentalNo, Name, ProductName, Category, Date, StartTime, EndTime, UsedMinutes, Plan, Amount, Deposit, Refund, Returnable, Staff, Note]
+      const rentalRows = rows.map(row => ({
+        RentalNo: row[0] || '',
+        Name: row[1] || '',
+        ProductName: row[2] || '',
+        Category: row[3] || '',
+        Date: row[4] || '',
+        StartTime: row[5] || '',
+        EndTime: row[6] || '',
+        UsedMinutes: row[7] || '',
+        Plan: row[8] || '',
+        Amount: row[9] || '',
+        Deposit: row[10] || '',
+        Refund: row[11] || '',
+        Returnable: row[12] || '',
+        Staff: row[13] || '',
+        Note: row[14] || '',
+      }));
+
+      await appendRentalsToGAS(rentalRows);
     }
 
     return res.status(200).json({
       success: true,
-      message: `${type} data appended successfully`,
+      message: `${type} data appended successfully via GAS`,
     });
 
   } catch (error) {

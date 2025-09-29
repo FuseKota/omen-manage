@@ -1,4 +1,43 @@
-import type { SheetsInterface } from './mockSheets';
+// Sheets クライアントの統一インターフェース
+// 返却機能追加に伴い、読み取り・更新機能を拡張
+
+export interface RentalRow {
+  rentalNo: string;
+  name: string;
+  productName: string;
+  category: string;
+  date: string;
+  startTime: string;
+  endTime: string;
+  usedMinutes: string;
+  plan: string;
+  amount: string;
+  deposit: string;
+  refund: string;
+  returnable: string;
+  staff: string;
+  note: string;
+}
+
+export interface SheetsInterface {
+  // 既存の書き込み機能
+  appendToSales: (rows: string[][]) => Promise<void>;
+  appendToRentals: (rows: string[][]) => Promise<void>;
+  getMaxRentalNumber: () => Promise<number>;
+
+  // 返却機能のための読み取り・更新機能
+  getRentals: () => Promise<RentalRow[]>;
+  getRentalByNo: (no: string) => Promise<RentalRow | null>;
+  finishRental: (input: {
+    rentalNo: string;
+    endTime: string;
+    usedMinutes: number;
+    plan: string;
+    amount: number;
+    refund: number;
+    returnable: 'OK' | 'NG';
+  }) => Promise<void>;
+}
 
 // 環境変数によってmockまたは実接続を切り替え
 function createSheetsClient(): SheetsInterface {

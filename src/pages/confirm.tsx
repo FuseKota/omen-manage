@@ -18,7 +18,7 @@ import {
   Chip,
   CircularProgress,
 } from '@mui/material';
-import { Receipt, Error } from '@mui/icons-material';
+import { Receipt, Error as ErrorIcon } from '@mui/icons-material';
 import { useRouter } from 'next/router';
 import { useCartStore } from '@/store/cartStore';
 import { Header } from '@/components/Header';
@@ -243,16 +243,15 @@ export default function ConfirmPage() {
                     <ListItemText
                       primary={item.product.name}
                       secondary={
-                        <Box>
-                          <Typography variant="body2" color="text.secondary">
-                            単価: ¥{item.product.salePrice} × {item.quantity}点
-                          </Typography>
+                        <>
+                          単価: ¥{item.product.salePrice} × {item.quantity}点
                           {mode === 'rental' && item.rentalPlan && (
-                            <Typography variant="body2" color="text.secondary">
+                            <>
+                              <br />
                               目安プラン: {getPlanDisplayName(item.rentalPlan)}
-                            </Typography>
+                            </>
                           )}
-                        </Box>
+                        </>
                       }
                     />
                     <Typography variant="body1" fontWeight="bold">
@@ -287,7 +286,7 @@ export default function ConfirmPage() {
 
         {/* エラー表示 */}
         {error && (
-          <Alert severity="error" sx={{ mb: 3 }} icon={<Error />}>
+          <Alert severity="error" sx={{ mb: 3 }} icon={<ErrorIcon />}>
             {error}
           </Alert>
         )}

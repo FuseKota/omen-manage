@@ -74,16 +74,15 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ open, onClose }) => {
                   <ListItemText
                     primary={item.product.name}
                     secondary={
-                      <Box>
-                        <Typography variant="body2" color="text.secondary">
-                          ¥{item.product.salePrice} × {item.quantity}
-                        </Typography>
+                      <>
+                        ¥{item.product.salePrice} × {item.quantity}
                         {mode === 'rental' && item.rentalPlan && (
-                          <Typography variant="body2" color="text.secondary">
+                          <>
+                            <br />
                             プラン: {getPlanDisplayName(item.rentalPlan)}
-                          </Typography>
+                          </>
                         )}
-                      </Box>
+                      </>
                     }
                   />
                   <ListItemSecondaryAction>
