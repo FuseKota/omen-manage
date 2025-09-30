@@ -46,7 +46,7 @@ export default function SelectPage() {
     return null; // ローディング中
   }
 
-  const categories: Category[] = ['OMEN', 'MINGEI', 'VINYL'];
+  const categories: Category[] = ['OMEN', 'VINYL'];
 
   return (
     <Box sx={{ minHeight: '100vh', backgroundColor: 'grey.50' }}>

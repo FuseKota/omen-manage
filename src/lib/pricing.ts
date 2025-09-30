@@ -4,8 +4,6 @@ export function getSaleUnitPrice(category: Category): number {
   switch (category) {
     case 'OMEN':
       return 500;
-    case 'MINGEI':
-      return 1000;
     case 'VINYL':
       return 300;
     default:
@@ -34,10 +32,7 @@ export function getRentalAmount(category: Category, minutes: number): { plan: Re
     baseAmount = 400;
   }
 
-  // 民芸お面は2倍
-  const amount = category === 'MINGEI' ? baseAmount * 2 : baseAmount;
-
-  return { plan, amount };
+  return { plan, amount: baseAmount };
 }
 
 export function getRentalEstimateText(category: Category, plan: RentalPlan): string {
@@ -49,9 +44,7 @@ export function getRentalEstimateText(category: Category, plan: RentalPlan): str
   };
 
   const baseAmount = baseAmounts[plan];
-  const amount = category === 'MINGEI' ? baseAmount * 2 : baseAmount;
-
-  return `約${amount}円`;
+  return `約${baseAmount}円`;
 }
 
 export function getPlanDisplayName(plan: RentalPlan): string {

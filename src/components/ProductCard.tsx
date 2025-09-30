@@ -82,19 +82,18 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, mode }) => {
       )}
 
       <CardMedia
+        component="img"
         sx={{
-          height: 140,
-          backgroundColor: 'grey.200',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          height: 300,
+          objectFit: 'cover',
         }}
+        image={`/images/products/${product.id}.jpg`}
+        alt={product.name}
         title={product.name}
-      >
-        <Typography variant="h6" color="text.secondary">
-          画像プレースホルダ
-        </Typography>
-      </CardMedia>
+        onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+          e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="200" height="140"%3E%3Crect width="200" height="140" fill="%23e0e0e0"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="14" fill="%23666"%3E画像なし%3C/text%3E%3C/svg%3E';
+        }}
+      />
 
       <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: 1 }}>
         <Typography variant="h6" component="h3" gutterBottom>

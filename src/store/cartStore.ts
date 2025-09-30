@@ -107,8 +107,7 @@ export const useCartStore = create<CartStore>((set, get) => ({
         // 実際の料金計算はpricing.tsのgetRentalAmountを使用
         const baseAmounts = { '1h': 100, '3h': 200, '6h': 300, 'allday': 400 };
         const baseAmount = baseAmounts[item.rentalPlan || '1h'];
-        const amount = item.product.category === 'MINGEI' ? baseAmount * 2 : baseAmount;
-        return total + (amount * item.quantity);
+        return total + (baseAmount * item.quantity);
       }
     }, 0);
   },
