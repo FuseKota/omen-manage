@@ -35,6 +35,11 @@ globalThis.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/done.js"
     ],
+    "/return": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/return.js"
+    ],
     "/select": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
