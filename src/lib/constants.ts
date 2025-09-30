@@ -55,7 +55,7 @@ export const PRODUCTS: Product[] = [
   { id: 'omen-5', name: 'マリオ', category: 'OMEN', salePrice: 500, rentalAllowed: true },
   { id: 'omen-6', name: 'ピカチュウ', category: 'OMEN', salePrice: 500, rentalAllowed: true },
   { id: 'omen-7', name: 'アンパンマン', category: 'OMEN', salePrice: 500, rentalAllowed: true },
-  { id: 'omen-8', name: 'シナモンロール', category: 'OMEN', salePrice: 500, rentalAllowed: true },
+  { id: 'omen-8', name: 'シナモロール', category: 'OMEN', salePrice: 500, rentalAllowed: true },
   { id: 'omen-9', name: '猫半面(緑)', category: 'OMEN', salePrice: 1000, rentalAllowed: true },
   { id: 'omen-10', name: '猫半面(金)', category: 'OMEN', salePrice: 1000, rentalAllowed: true },
   { id: 'omen-11', name: '黒狐', category: 'OMEN', salePrice: 1000, rentalAllowed: true },
