@@ -25,20 +25,10 @@ globalThis.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/confirm": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/confirm.js"
-    ],
     "/done": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/done.js"
-    ],
-    "/select": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/select.js"
     ]
   },
   "ampFirstPages": []
