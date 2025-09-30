@@ -113,7 +113,6 @@ export default function DonePage() {
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
             <Button
               variant="contained"
-              size="large"
               onClick={handleReturnHome}
               startIcon={<Home />}
               sx={{ px: 4 }}
@@ -123,7 +122,6 @@ export default function DonePage() {
 
             <Button
               variant="outlined"
-              size="large"
               onClick={handleNewTransaction}
               startIcon={<Refresh />}
               sx={{ px: 4 }}

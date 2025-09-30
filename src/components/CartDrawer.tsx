@@ -145,7 +145,6 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ open, onClose }) => {
                 variant="contained"
                 onClick={handleProceedToConfirm}
                 sx={{ flex: 2 }}
-                size="large"
               >
                 確認画面へ
               </Button>

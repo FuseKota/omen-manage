@@ -67,7 +67,6 @@ export default function HomePage() {
                 </Typography>
                 <Button
                   variant="contained"
-                  size="large"
                   endIcon={<ArrowForward />}
                   fullWidth
                   sx={{ py: 2, fontSize: '1.2rem' }}
@@ -102,7 +101,6 @@ export default function HomePage() {
                 <Button
                   variant="contained"
                   color="secondary"
-                  size="large"
                   endIcon={<ArrowForward />}
                   fullWidth
                   sx={{ py: 2, fontSize: '1.2rem' }}

@@ -61,7 +61,6 @@ export default function SelectPage() {
           <Chip
             label={mode === 'sale' ? '購入モード' : 'レンタルモード'}
             color={mode === 'sale' ? 'primary' : 'secondary'}
-            size="large"
             sx={{ fontSize: '1rem', px: 2, py: 1 }}
           />
         </Box>

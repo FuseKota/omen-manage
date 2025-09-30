@@ -152,7 +152,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, mode }) => {
             fullWidth
             onClick={handleAddToCart}
             disabled={isDisabled}
-            size="large"
           >
             カートに入れる
           </Button>

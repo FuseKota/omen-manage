@@ -27,7 +27,7 @@ export async function callGAS<T = any>(payload: GASRequest): Promise<GASResponse
   }
 
   try {
-    console.log('[GAS Client] Request:', { action: payload.action, ...payload });
+    console.log('[GAS Client] Request:', payload);
 
     const response = await fetch(gasBaseUrl, {
       method: 'POST',

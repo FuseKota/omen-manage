@@ -188,7 +188,6 @@ export default function ConfirmPage() {
           <Chip
             label={mode === 'sale' ? '購入確認' : 'レンタル確認'}
             color={mode === 'sale' ? 'primary' : 'secondary'}
-            size="large"
             sx={{ fontSize: '1rem', px: 2, py: 1 }}
           />
         </Box>

@@ -2,7 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
+  "/select": "pages/select.js",
+  "/confirm": "pages/confirm.js",
   "/done": "pages/done.js",
-  "/select": "pages/select.js"
+  "/api/sheets/append": "pages/api/sheets/append.js",
+  "/": "pages/index.js"
 }

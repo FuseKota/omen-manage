@@ -150,7 +150,7 @@ export default function ReturnPage() {
       });
 
       // 検索結果から削除
-      setSearchResults(prev => prev.filter(r => r.rentalNo !== selectedRental.RentalNo));
+      setSearchResults(prev => prev.filter(r => r.RentalNo !== selectedRental.RentalNo));
       setSelectedRental(null);
 
     } catch (error) {
@@ -204,14 +204,12 @@ export default function ReturnPage() {
                 <Button
                   variant={searchType === 'number' ? 'contained' : 'outlined'}
                   onClick={() => setSearchType('number')}
-                  size="large"
                 >
                   番号検索
                 </Button>
                 <Button
                   variant={searchType === 'name' ? 'contained' : 'outlined'}
                   onClick={() => setSearchType('name')}
-                  size="large"
                 >
                   名前検索
                 </Button>
@@ -254,11 +252,11 @@ export default function ReturnPage() {
                         onClick={() => handleSelectRental(rental)}
                         sx={{
                           border: 1,
-                          borderColor: selectedRental?.rentalNo === rental.RentalNo ? 'primary.main' : 'divider',
+                          borderColor: selectedRental?.RentalNo === rental.RentalNo ? 'primary.main' : 'divider',
                           borderRadius: 1,
                           mb: 1,
                           cursor: 'pointer',
-                          backgroundColor: selectedRental?.rentalNo === rental.RentalNo ? 'primary.50' : 'transparent',
+                          backgroundColor: selectedRental?.RentalNo === rental.RentalNo ? 'primary.50' : 'transparent',
                           '&:hover': {
                             backgroundColor: 'action.hover',
                           },
@@ -365,8 +363,7 @@ export default function ReturnPage() {
                     startIcon={returnType === 'OK' ? <CheckCircle /> : <Block />}
                     onClick={handleConfirmReturn}
                     disabled={processing}
-                    size="large"
-                    fullWidth
+                      fullWidth
                   >
                     {returnType === 'OK' ? '返却確定' : '返却不可で処理'}
                   </Button>
@@ -448,10 +445,10 @@ export default function ReturnPage() {
             </Typography>
             <Box sx={{ mt: 2 }}>
               <Typography variant="body2">
-                <strong>レンタル番号:</strong> #{selectedRental?.rentalNo}
+                <strong>レンタル番号:</strong> #{selectedRental?.RentalNo}
               </Typography>
               <Typography variant="body2">
-                <strong>商品:</strong> {selectedRental?.productName}
+                <strong>商品:</strong> {selectedRental?.ProductName}
               </Typography>
               <Typography variant="body2">
                 <strong>返却時刻:</strong> {endTime}
